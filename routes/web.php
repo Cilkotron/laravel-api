@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
@@ -8,15 +9,34 @@ Route::get('/', function () {
     );
 });
 Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->paginate(5);
+    $jobs = Job::with('employer')->latest()->paginate(5);
     return view(
-        'jobs', ['jobs' => $jobs]
-       
+        'jobs.index',
+        ['jobs' => $jobs]
+
     );
+});
+Route::get('/jobs/create', function () {
+    return view(
+        'jobs.create'
+    );
+});
+Route::post('/jobs', function () {
+   Job::create(
+   [
+    'title' => request('title'),
+    'pay' => request('pay'), 
+    'employer_id' => 5
+   ]
+   ); 
+   return redirect('/jobs'); 
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    return view('job', ['job' => Job::find($id)]);
+    return view(
+        'jobs.show',
+        ['job' => Job::find($id)]
+    );
 });
 
 Route::get('/contact', function () {
