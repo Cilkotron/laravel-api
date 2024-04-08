@@ -2,13 +2,12 @@
     <x-slot:heading>
         Create Job
     </x-slot:heading>
-    <form method="POST" action="/jobs" >
+    <form method="POST" action="/jobs">
         @csrf
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Create a new Job</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600">Add a job title & salary amount</p>
-
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
                         <label for="job-title" class="block text-sm font-medium leading-6 text-gray-900">Job Title</label>
@@ -19,6 +18,9 @@
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                     placeholder="Job Title">
                             </div>
+                            @error('title')
+                                <p class="text-red-500 text-xs font-semibold mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="sm:col-span-4">
@@ -31,13 +33,13 @@
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                     placeholder="Job Salary">
                             </div>
+                            @error('pay')
+                                <p class="text-red-500 text-xs font-semibold mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">

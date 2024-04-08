@@ -22,14 +22,18 @@ Route::get('/jobs/create', function () {
     );
 });
 Route::post('/jobs', function () {
-   Job::create(
-   [
-    'title' => request('title'),
-    'pay' => request('pay'), 
-    'employer_id' => 5
-   ]
-   ); 
-   return redirect('/jobs'); 
+    request()->validate([
+        'title' => ['required', 'min:5'],
+        'pay' => ['required']
+    ]);
+    Job::create(
+        [
+            'title' => request('title'),
+            'pay' => request('pay'),
+            'employer_id' => 5
+        ]
+    );
+    return redirect('/jobs');
 });
 
 Route::get('/jobs/{id}', function ($id) {
