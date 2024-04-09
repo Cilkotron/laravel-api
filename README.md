@@ -11,12 +11,12 @@ This is a Laravel project configured to use Vite for frontend development.
 
     1. Clone this repository:
         ```bash
-        git clone https://github.com/Cilkotron/laravel-api
+        git clone https://github.com/Cilkotron/laravel11
         ```
 
     2. Navigate to the project directory:
         ```bash
-        cd laravel-api
+        cd laravel11
         ```
 
     3. Install PHP dependencies:
