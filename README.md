@@ -26,6 +26,11 @@ This is a Laravel project configured to use Vite for frontend development.
 
 3. **Usage**
 
+     - **Serve**: You can run your Laravel application using:
+        ```bash
+        php artisan serve
+        ```
+
     - **Testing**: You can run tests for your Laravel application using:
         ```bash
         php artisan test
