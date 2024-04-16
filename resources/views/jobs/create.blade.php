@@ -9,43 +9,28 @@
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Create a new Job</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600">Add a job title & salary amount</p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div class="sm:col-span-4">
-                        <label for="job-title" class="block text-sm font-medium leading-6 text-gray-900">Job Title</label>
+                    <x-form-field>
+                        <x-form-label for="job-title">Job Title</x-form-label>
                         <div class="mt-2">
-                            <div
-                                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="title" id="job-title"
-                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="Job Title">
-                            </div>
-                            @error('title')
-                                <p class="text-red-500 text-xs font-semibold mt-1">{{ $message }}</p>
-                            @enderror
+                            <x-form-input name="title" id="job-title" placeholder="SEO"/>
+                            <x-form-error name="title" />
                         </div>
-                    </div>
-                    <div class="sm:col-span-4">
-                        <label for="job-pay" class="block text-sm font-medium leading-6 text-gray-900">Job
-                            Salary</label>
+                    </x-form-field>
+                    <x-form-field>
+                        <x-form-label for="job-pay">Job
+                            Salary</x-form-label>
                         <div class="mt-2">
-                            <div
-                                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="number" name="pay" id="job-pay"
-                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="Job Salary">
-                            </div>
-                            @error('pay')
-                                <p class="text-red-500 text-xs font-semibold mt-1">{{ $message }}</p>
-                            @enderror
+                            <x-form-input type="number" name="pay" id="job-pay" placeholder="100000"/>
+                            <x-form-error name="pay" />
                         </div>
-                    </div>
+                    </x-form-field>
                 </div>
             </div>
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
             <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-            <button type="submit"
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+            <x-form-button>Save</x-form-button>
         </div>
     </form>
 
