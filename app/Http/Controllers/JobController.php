@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\User; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate; 
 
 class JobController extends Controller
 {
@@ -34,7 +37,7 @@ class JobController extends Controller
                 'employer_id' => 5
             ]
         );
-        
+
         return redirect('/jobs');
     }
 
@@ -45,6 +48,7 @@ class JobController extends Controller
 
     public function edit(Job $job)
     {
+
         return view('jobs.edit', ['job' => $job]);
     }
 
@@ -64,7 +68,7 @@ class JobController extends Controller
         return redirect('jobs/' . $job->id);
     }
 
-    public function destoy(Job $job)
+    public function destroy(Job $job)
     {
         $job->delete();
 
