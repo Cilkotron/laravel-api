@@ -6,6 +6,6 @@
         Congrats! You just posted job on our webiste. 
     </p>
     <p>
-        <a href="{{ url('/jobs/' . $job->id )}}">View job listing</a>
+       <a href="{{ url('/jobs/' . $job->id )}}">View job listing</a>
     </p>
 </div>
